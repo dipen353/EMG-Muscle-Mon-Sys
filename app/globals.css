@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 173 58% 39%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 173 58% 39%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* Smooth animations */
+* {
+  transition: border-color 0.2s ease-in-out;
+}
+
+/* EMG specific styles */
+.emg-card {
+  @apply bg-gray-800 border border-gray-700 rounded-xl shadow-xl;
+  @apply hover:border-teal-600 transition-all duration-300;
+  @apply backdrop-blur-sm bg-opacity-90;
+}
+
+.teal-accent {
+  @apply text-teal-400 border-teal-500 bg-teal-900/20;
+}
+
+.realtime-value {
+  @apply text-4xl font-bold text-teal-300 font-mono;
+}
+
+.status-optimal {
+  @apply text-green-400 bg-green-900/20 border-green-600;
+}
+
+.status-warning {
+  @apply text-yellow-400 bg-yellow-900/20 border-yellow-600;
+}
+
+.status-danger {
+  @apply text-red-400 bg-red-900/20 border-red-600;
+}
+
+/* Pulse animation for real-time data */
+@keyframes pulse-teal {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-teal {
+  animation: pulse-teal 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
